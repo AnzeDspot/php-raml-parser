@@ -37,6 +37,8 @@ class JsonSchemaParser extends SchemaParserAbstract
         $retriever = new UriRetriever;
         $jsonSchemaParser = new RefResolver($retriever);
 
+	$jsonSchemaParser::$maxDepth = 20;
+
         $data = json_decode($schemaString);
 
         if (!$data) {
